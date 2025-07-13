@@ -13,11 +13,16 @@
       --muted: #999;
     }
 
-    body {
+    * {
       margin: 0;
       padding: 0;
-      background: var(--bg);
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
       color: var(--text);
       line-height: 1.6;
     }
@@ -28,7 +33,8 @@
       padding: 30px 25px;
       background: var(--card-bg);
       border-radius: 15px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+      position: relative;
     }
 
     header {
@@ -37,32 +43,45 @@
     }
 
     h1 {
-      color: var(--accent);
+      font-size: 2.7rem;
       margin-bottom: 10px;
-      font-size: 2.5rem;
+      color: var(--accent);
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #1db954;
+      }
+      to {
+        text-shadow: 0 0 20px #21e065;
+      }
+    }
+
+    #typing {
+      font-size: 1rem;
+      color: var(--muted);
+      height: 1.2rem;
     }
 
     h2 {
       color: var(--accent);
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       border-bottom: 2px solid var(--accent);
       display: inline-block;
-      margin-bottom: 20px;
-    }
-
-    p {
-      margin: 8px 0;
+      margin-bottom: 15px;
     }
 
     a {
       color: var(--accent);
       text-decoration: none;
-      transition: 0.3s ease;
+      transition: all 0.3s ease;
     }
 
     a:hover {
-      text-decoration: underline;
       color: #21e065;
+      text-decoration: underline;
+      cursor: pointer;
     }
 
     .section {
@@ -87,8 +106,8 @@
     }
 
     .projects ul {
-      padding-left: 0;
       list-style: none;
+      padding-left: 0;
     }
 
     .projects li {
@@ -97,11 +116,12 @@
       padding: 15px;
       border-left: 4px solid var(--accent);
       border-radius: 8px;
-      transition: background 0.3s;
+      transition: all 0.3s ease;
     }
 
     .projects li:hover {
-      background: #333333;
+      transform: translateY(-2px);
+      background: #333;
     }
 
     footer {
@@ -109,6 +129,26 @@
       font-size: 14px;
       color: var(--muted);
       margin-top: 30px;
+    }
+
+    #topBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--accent);
+      color: var(--bg);
+      padding: 10px 15px;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    #topBtn:hover {
+      background: #21e065;
     }
 
     @media (max-width: 600px) {
@@ -136,7 +176,7 @@
   <div class="container">
     <header>
       <h1>Muhammed Asfan</h1>
-      <p>Cybersecurity Enthusiast | Full-Stack Developer | Bug Bounty Hunter</p>
+      <div id="typing"></div>
       <p><a href="mailto:muhammedasfan.p@gmail.com">muhammedasfan.p@gmail.com</a></p>
     </header>
 
@@ -190,5 +230,48 @@
       <p>© 2025 Muhammed Asfan. All rights reserved.</p>
     </footer>
   </div>
+
+  <button id="topBtn" onclick="scrollToTop()">↑ Top</button>
+
+  <script>
+    // Typing Effect
+    const phrases = [
+      "Cybersecurity Enthusiast",
+      "Full-Stack Developer",
+      "Bug Bounty Hunter",
+      "Learning. Hacking. Building."
+    ];
+    let i = 0, j = 0, current = [], isDeleting = false;
+
+    function loop() {
+      document.getElementById("typing").innerText = current.join("");
+      if (!isDeleting && j < phrases[i].length) {
+        current.push(phrases[i][j]);
+        j++;
+      } else if (isDeleting && j > 0) {
+        current.pop();
+        j--;
+      } else if (!isDeleting && j === phrases[i].length) {
+        isDeleting = true;
+        setTimeout(loop, 1200);
+        return;
+      } else if (isDeleting && j === 0) {
+        isDeleting = false;
+        i = (i + 1) % phrases.length;
+      }
+      setTimeout(loop, isDeleting ? 40 : 80);
+    }
+    loop();
+
+    // Scroll to top button
+    const topBtn = document.getElementById("topBtn");
+    window.onscroll = () => {
+      topBtn.style.display = window.scrollY > 300 ? "block" : "none";
+    };
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  </script>
 </body>
 </html>
