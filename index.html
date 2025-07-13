@@ -5,90 +5,190 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Muhammed Asfan | Portfolio</title>
   <style>
+    :root {
+      --accent: #1db954;
+      --bg: #121212;
+      --card-bg: #1e1e1e;
+      --text: #f0f0f0;
+      --muted: #999;
+    }
+
     body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-      background: #121212;
-      color: #f0f0f0;
+      color: var(--text);
       line-height: 1.6;
     }
-    h1, h2 {
-      color: #1db954;
+
+    .container {
+      max-width: 850px;
+      margin: 40px auto;
+      padding: 30px 25px;
+      background: var(--card-bg);
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
     }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-size: 2.5rem;
+    }
+
+    h2 {
+      color: var(--accent);
+      font-size: 1.5rem;
+      border-bottom: 2px solid var(--accent);
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin: 8px 0;
+    }
+
     a {
-      color: #1db954;
+      color: var(--accent);
       text-decoration: none;
+      transition: 0.3s ease;
     }
+
     a:hover {
       text-decoration: underline;
+      color: #21e065;
     }
+
     .section {
       margin-bottom: 40px;
     }
+
     .skills ul {
-      list-style-type: none;
-      padding-left: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 0;
+      list-style: none;
     }
+
     .skills li {
-      display: inline-block;
-      background: #1db954;
-      color: #121212;
-      padding: 5px 10px;
-      margin: 5px 5px 0 0;
+      background: var(--accent);
+      color: var(--bg);
+      padding: 6px 14px;
       border-radius: 20px;
-      font-weight: bold;
+      font-weight: 600;
+      font-size: 14px;
     }
+
     .projects ul {
-      padding-left: 20px;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .projects li {
+      margin-bottom: 20px;
+      background: #292929;
+      padding: 15px;
+      border-left: 4px solid var(--accent);
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    .projects li:hover {
+      background: #333333;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 30px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        margin: 20px;
+        padding: 20px 15px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.2rem;
+      }
+
+      .skills li {
+        font-size: 13px;
+        padding: 5px 12px;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Muhammed Asfan</h1>
-    <p>Cybersecurity Enthusiast | Full-Stack Developer | Bug Bounty Hunter</p>
-    <p>Contact: <a href="mailto:muhammedasfan.p@gmail.com">muhammedasfan.p@gmail.com</a></p>
-  </header>
+  <div class="container">
+    <header>
+      <h1>Muhammed Asfan</h1>
+      <p>Cybersecurity Enthusiast | Full-Stack Developer | Bug Bounty Hunter</p>
+      <p><a href="mailto:muhammedasfan.p@gmail.com">muhammedasfan.p@gmail.com</a></p>
+    </header>
 
-  <section class="section about">
-    <h2>About Me</h2>
-    <p>
-      I am a passionate cybersecurity enthusiast and full-stack developer dedicated to building secure and scalable applications. I love exploring ethical hacking, bug bounty hunting, and new tech like Web3 and Blockchain.
-    </p>
-  </section>
+    <section class="section about">
+      <h2>About Me</h2>
+      <p>
+        I'm a cybersecurity student passionate about ethical hacking, secure development, and the future of decentralized tech. Whether it's a bug bounty, CTF, or full-stack app—I'm all in on building and breaking for a better web.
+      </p>
+    </section>
 
-  <section class="section skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>Python</li>
-      <li>JavaScript</li>
-      <li>C++</li>
-      <li>HTML & CSS</li>
-      <li>React</li>
-      <li>Node.js</li>
-      <li>PostgreSQL</li>
-      <li>Penetration Testing</li>
-      <li>Nmap & Burp Suite</li>
-    </ul>
-  </section>
+    <section class="section skills">
+      <h2>Skills</h2>
+      <ul>
+        <li>Python</li>
+        <li>JavaScript</li>
+        <li>C++</li>
+        <li>HTML & CSS</li>
+        <li>React</li>
+        <li>Node.js</li>
+        <li>PostgreSQL</li>
+        <li>Penetration Testing</li>
+        <li>Nmap</li>
+        <li>Burp Suite</li>
+      </ul>
+    </section>
 
-  <section class="section projects">
-    <h2>Projects</h2>
-    <ul>
-      <li><a href="https://github.com/MhdAsfan/bugbounty-toolkit" target="_blank" rel="noopener">Bug Bounty Toolkit</a> - Automated recon and vulnerability scanning tools.</li>
-      <li><a href="https://github.com/MhdAsfan/ctf-challenges" target="_blank" rel="noopener">CTF Challenges</a> - Capture The Flag writeups and solutions.</li>
-    </ul>
-  </section>
+    <section class="section projects">
+      <h2>Projects</h2>
+      <ul>
+        <li>
+          <a href="https://github.com/MhdAsfan/bugbounty-toolkit" target="_blank" rel="noopener">
+            Bug Bounty Toolkit
+          </a><br>
+          Automated recon and vulnerability scanning tools for bug bounty and pentest workflows.
+        </li>
+        <li>
+          <a href="https://github.com/MhdAsfan/ctf-challenges" target="_blank" rel="noopener">
+            CTF Challenges
+          </a><br>
+          Writeups and solutions to Capture The Flag challenges from platforms like TryHackMe & HTB.
+        </li>
+      </ul>
+    </section>
 
-  <section class="section contact">
-    <h2>Contact Me</h2>
-    <p>You can reach me at <a href="mailto:muhammedasfan.p@gmail.com">muhammedasfan.p@gmail.com</a>. Feel free to connect!</p>
-  </section>
+    <section class="section contact">
+      <h2>Contact Me</h2>
+      <p>You can reach me anytime at <a href="mailto:muhammedasfan.p@gmail.com">muhammedasfan.p@gmail.com</a> — open to collaborations, internships, or just a friendly chat!</p>
+    </section>
 
-  <footer>
-    <p>© 2025 Muhammed Asfan</p>
-  </footer>
+    <footer>
+      <p>© 2025 Muhammed Asfan. All rights reserved.</p>
+    </footer>
+  </div>
 </body>
 </html>
