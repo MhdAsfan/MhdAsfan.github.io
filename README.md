@@ -14,27 +14,26 @@ This is my personal portfolio website hosted on GitHub Pages. It showcases my sk
 
 ---
 
-## How to Use
+### How to Use
 
 1. Clone the repository:
 
    git clone https://github.com/MhdAsfan/MhdAsfan.github.io.git
+
 2. Open index.html in your preferred web browser to view locally.
 
 3. Customize the website by editing the index.html file as needed.
 
 ## Deployment
+
 This repository is automatically published by GitHub Pages at:
 https://mhdasfan.github.io/
 
 ## Contact
 Feel free to reach out via email: muhammedasfan.p@gmail.com
 
-# License
-MIT License
+## License
 
-Copy
-Edit
 MIT License
 
 Copyright (c) 2025 Muhammed Asfan
