@@ -23,14 +23,14 @@ This is my personal portfolio website hosted on GitHub Pages. It showcases my sk
 
 3. Customize the website by editing the index.html file as needed.
 
-Deployment
+## Deployment
 This repository is automatically published by GitHub Pages at:
 https://mhdasfan.github.io/
 
-Contact
+## Contact
 Feel free to reach out via email: muhammedasfan.p@gmail.com
 
-License
+# License
 MIT License
 
 Copy
